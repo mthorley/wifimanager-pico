@@ -1,0 +1,17 @@
+{
+    "name": "WiFiManager-Pico",
+    "version": "1.0.0",
+    "description": "Captive portal for WiFi credentials capture and management.",
+    "keywords": "WiFiManager Pico",
+    "authors":
+    [
+      {
+        "name": "Matt Thorley"
+      }
+    ],
+    "license": "MIT",
+    "dependencies": {
+    },
+    "frameworks": "*",
+    "platforms": "*"
+}

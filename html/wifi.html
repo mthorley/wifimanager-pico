@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1'/>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #22272D;
+        }
+
+        .title {
+            color: white;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        .desc {
+            color: #8293A6;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        table {
+            margin-left:auto;margin-right:auto;
+        }
+
+        .button {
+            background-color: #22272D;
+            border: #60BDC5;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #8293A6;
+            cursor: pointer;
+            display: inline-block;
+            padding: 10px 32px;
+            font-size: 16px;
+            margin: 4px 2px;
+            text-align: center;
+            text-decoration: none;
+            transition-duration: 0.4s;
+        }
+
+        .button:hover {
+            background-color: #60BDC5;
+            color: white;
+        }
+
+        tr td {
+           color: white;
+           padding: 5px;
+           font-size: 16px;
+        }
+
+        a {
+            color: #48c0c7
+        }
+
+        .sec {
+            text-align: right;
+            width: 80px;
+        }
+
+        /* From https://hungyi.net/posts/pure-css-signal-indicator/ */
+        .signal-icon {
+            height: 18px;
+            width: 18px;
+            /* To show you the power of flexbox! */
+            display: flex;
+            /* Bars should be placed left to right */
+            flex-direction: row;
+            /* Evenly space the bars with space in between */
+            justify-content: space-between;
+            /* Sink the bars to the bottom, so they go up in steps */
+            align-items: baseline;
+        }
+
+        .signal-icon .signal-bar {
+            /* 4 + 3 + 4 + 3 + 4 = 18px (as set above)
+                4px per bar and 3px margins between */
+            width: 4px;
+            /* All bars faded by default */
+            opacity: 30%;
+            /* Choose a color */
+            background: white;
+         }
+
+        /* 3 different heights for 3 different bars */
+        .signal-icon .signal-bar:nth-child(1) { height: 40%; }
+        .signal-icon .signal-bar:nth-child(2) { height: 70%; }
+        .signal-icon .signal-bar:nth-child(3) { height: 100%; }
+
+        /* Emphasize different bars depending on
+        weak/medium/strong classes */
+        .signal-icon.weak .signal-bar:nth-child(1),
+        .signal-icon.medium .signal-bar:nth-child(1),
+        .signal-icon.medium .signal-bar:nth-child(2),
+        .signal-icon.strong .signal-bar:nth-child(1),
+        .signal-icon.strong .signal-bar:nth-child(2),
+        .signal-icon.strong .signal-bar:nth-child(3)
+        { opacity: 100%; }
+
+        input[type=text], input[type=password] {
+            padding: 6px;
+            margin: 4px 0;
+            width: 100%;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        td.sec img#lock {
+            /*url(data:image/png;base64,iRxVB0…);*/
+            content: url('lock.png');
+            width: 20px;
+        }
+
+        td.sec img#unlock {
+            /*url(data:image/png;base64,iRxVB0…);*/
+            /*content: url('unlock.png');*/ /* insecure WiFi shows no lock */
+            width: 20px;
+        }
+
+    </style>
+    <script>
+        function setSSID(e) {
+            var ssid = e.innerHTML;
+            document.getElementById('ssid').value = ssid;
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <!-- ${hero.img} -->
+                <img src="hero.png" width="100px" alt="Hero logo"/>
+            </td>
+        </tr>
+    </table>
+    </div>
+    <div class="title">PicoW</div>
+    <p/>
+    <div class="desc">Available WiFi Networks</div>
+    <p/>
+    <table>
+        <!-- ${network} start -->
+        <tr>
+            <td>
+                <div class="signal-icon strong">
+                    <div class="signal-bar"></div>
+                    <div class="signal-bar"></div>
+                    <div class="signal-bar"></div>
+                </div>
+            </td>
+            <td><a onclick="javascript:setSSID(this)" href="javascript:">NETGEAR</a></td>
+            <td class="sec">
+                <img id="lock"/>
+            </td>
+        </tr>
+        <!-- ${network} end -->
+        <tr>
+            <td>
+                <div class="signal-icon medium">
+                    <div class="signal-bar"></div>
+                    <div class="signal-bar"></div>
+                    <div class="signal-bar"></div>
+                </div>
+            </td>
+            <td><a onclick="javascript:setSSID(this)" href="javascript:">Not Your Wifi</a></td>
+            <td class="sec">
+                <img id="lock"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="signal-icon medium">
+                    <div class="signal-bar"></div>
+                    <div class="signal-bar"></div>
+                    <div class="signal-bar"></div>
+                </div>
+            </td>
+            <td><a onclick="javascript:setSSID(this)" href="javascript:">halflife</a></td>
+            <td class="sec">
+                <img id="lock"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="signal-icon weak">
+                    <div class="signal-bar"></div>
+                    <div class="signal-bar"></div>
+                    <div class="signal-bar"></div>
+                </div>
+            </td>
+            <td><a onclick="javascript:setSSID(this)" href="javascript:">Open network on 2.4GHz</a></td>
+            <td class="sec">
+                <img id="unlock"/>
+            </td>
+        </tr>
+    </table>
+    <p/>
+    <br/>
+    <table>
+        <tr>
+            <td>
+            <div class="desc">WiFi Settings</div>
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td width="200px">
+                <form method='POST' action='wifisave'>
+                    <input id="ssid" type='text' placeholder='SSID' maxlength='32' name='n'/><br />
+                    <input type='password' placeholder='Password' maxlength='32' name='p'/><br />
+                    <input class="button" type='submit' value='Connect'/>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <p><a href='/'>Back to home</a></p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
