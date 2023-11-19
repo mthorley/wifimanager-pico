@@ -1,6 +1,6 @@
 # WiFiManager for RaspberryPi PicoW
 
-This library provides a captive portal similar to ESP32 WiFiManager implementations to allow WiFi credentials to be entered and stored in EEPROM so that devices can be configured to local WiFi networks.
+This library provides a captive portal similar to ESP32 WiFiManager implementations to allow WiFi credentials to be entered and stored in (simulated) EEPROM so that devices can be configured to local WiFi networks.
 
 Features
  - Basic customisable HTML content
