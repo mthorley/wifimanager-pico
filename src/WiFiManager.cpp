@@ -61,14 +61,18 @@ bool WiFiManager::autoConnect()
 }
 
 // update html main image and title content
-void WiFiManager::setContent(const char* hero_img, String& title, String& name, String& shortname, String& maker, String& version)
+void WiFiManager::setContentText(String& title, String& name, String& shortname, String& maker, String& version)
 {
-    _hero_img = hero_img;
     _title = title;
     _name = name;
     _shortname = shortname;
     _maker = maker;
     _version = version;
+}
+
+void WiFiManager::setContentMainImage(const char* img)
+{
+    _hero_img = img;
 }
 
 void WiFiManager::cycleStateMachine()

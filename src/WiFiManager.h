@@ -25,7 +25,8 @@ public:
     ~WiFiManager();
 
     bool autoConnect();
-    void setContent(const char* hero_img, String& title, String& name, String& shortname, String& maker, String& version);
+    void setContentText(String& title, String& name, String& shortname, String& maker, String& version);
+    void setContentMainImage(const char* img);
 
     inline static const char *HOSTNAME = "picow";    // hostname for mDNS to enable http://picow.local
 
