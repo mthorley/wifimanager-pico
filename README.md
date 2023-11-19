@@ -3,7 +3,7 @@
 This library provides a captive portal similar to ESP32 WiFiManager implementations to allow WiFi credentials to be entered and stored in EEPROM so that devices can be configured to local WiFi networks.
 
 Features
- - Customisable HTML content
+ - Basic customisable HTML content
  - Persistent storage of credentials in EEPROM 
 
 It does not support OTA nor device configuration outside of WiFi credentials.
@@ -18,17 +18,22 @@ To create a captive portal:
     WiFiManager wm("ap_SSID", "ap_password");   // Access point credentials for portal
     bool success = wm.autoConnect();
 
-By default, the portal appears as below. However, some basic customisation is available for the main (hero) image and title:
+By default, the portal appears as below. However, some basic customisation is available for the main (hero) image, title and maker attribution:
 
-    const char hero_img[] PROGMEM = R"=====(
+    const char main_img[] PROGMEM = R"=====(
         data:image/png;base64, ..."
     )=====";
 
     String title("Cool device");
-    wm.setContent(hero_img, title);
+    String name("DeviceName"):
+    String shortname("TLA");
+    String maker("Person");
+    String version("1.0");
+    wm.setContentText(title, name, shortname, maker, version);
+    wm.setContentMainImage(main_img);
     bool success = wm.autoConnect();
 
-where `hero_img` is a base64 encoded PNG in this case.
+where `main_img` is a char* to a base64 encoded image in this case.
 
 ## Captive Portal
 
