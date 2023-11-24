@@ -49,8 +49,6 @@ The portal WiFi page allows configuration of the target network.
 
 <img src="./docs/portal-wifi.png" alt="Captive Portal WiFi setup" width="400"/>
 
-WiFi credentials can be erased using the AdminUI which will cause the captive portal to be presented on device restart.
-
 ## Content
 
 The templates for the captive portal web assets (e.g. HTML, CSS, images) are defined in [WiFiManagerAssets.h](./src/WiFiManagerAssets.h) where web assets or fragments of HTML are stored as `PROGMEM` variables within flash. These variables are then consumed within [WiFiManager.cpp](./src/WiFiManager.cpp) to hydrate the web assets and perform any dynamic text or style substitutiions using `String` to replace `${variable_name}` with content.
