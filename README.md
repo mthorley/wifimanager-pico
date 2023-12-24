@@ -54,6 +54,32 @@ The web assets are derived from web content held under [html](./html). These web
 
 Note the use of EEPROM (used to store WiFi credentials) is [simulated](https://arduino-pico.readthedocs.io/en/latest/eeprom.html), since the Raspberry Pi Pico RP2040 does not come with an EEPROM onboard, it is simulated by using a single 4K chunk of flash at the end of flash space.
 
+## Installation
+
+For platformio, add the library as a reference to your main project under ```lib_deps```:
+
+```
+[env:pico]
+platform = https://github.com/maxgerhardt/platform-raspberrypi.git
+framework = arduino
+board = rpipicow
+board_build.core = earlephilhower
+board_build.filesystem_size = 0.5m
+monitor_filters = time
+monitor_speed = 115200
+lib_deps = 
+	https://github.com/mthorley/wifimanager-pico.git
+```
+
+## Debugging
+
+The library will output logs to Serial, if debug is enabled in the constructor:
+
+```
+bool debug = true;
+WiFiManager wm("ap_SSID", "ap_password", debug);   // Access point 
+```
+
 ## Attribution
 
 Hero image is a nod to the excellent [OXRS ecosystem](https://oxrs.io/).
