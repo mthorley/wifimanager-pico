@@ -72,6 +72,7 @@ monitor_filters = time
 monitor_speed = 115200
 lib_deps = 
 	https://github.com/mthorley/wifimanager-pico.git
+    CRC@^1.0.1
 ```
 
 ## Debugging
